@@ -1,0 +1,53 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<section class="insights-hero">
+  <div class="page-hero__bg-grid"></div>
+  <div class="container">
+    <div class="hero__mono">TECHO TRADERS / TECHO INSIGHTS</div>
+    <h1 class="display-heading" style="color: var(--white); max-width: 700px;">THOUGHT<br>LEADERSHIP<br>FROM THE FIELD.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.5rem;">
+      <div>
+        <div class="label">Latest Articles</div>
+        <h2 class="section-heading">Techo Insights</h2>
+      </div>
+      <p style="color: var(--slate-light); font-size: 0.9rem;"><%= articles.length %> articles</p>
+    </div>
+
+    <div class="articles-grid">
+      <% articles.forEach(article => { %>
+      <article class="article-card fade-up">
+        <div class="article-card__header">
+          <div class="article-card__cat cat--<%= article.categoryColor %>"><%= article.category %></div>
+          <h3><%= article.title %></h3>
+          <p><%= article.excerpt %></p>
+        </div>
+        <div class="article-card__footer">
+          <div>
+            <div class="article-card__meta"><%= article.author %></div>
+            <div class="article-card__meta"><%= article.date %> · <%= article.readTime %></div>
+          </div>
+          <a href="#" class="article-card__read">
+            Read
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+
+    <!-- Coming soon note -->
+    <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: var(--off-white); border-radius: 8px;">
+      <div class="label" style="justify-content: center;">More Coming</div>
+      <h3 style="font-family: var(--font-display); font-size: 2rem; color: var(--dark); letter-spacing: 0.02em; margin-bottom: 1rem;">Stay Ahead of the Curve</h3>
+      <p style="color: var(--slate-light); max-width: 450px; margin: 0 auto;">Our editorial team regularly publishes insights on technology trends across all three of our industries. Check back often.</p>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,116 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<section class="contact-hero">
+  <div class="page-hero__bg-grid"></div>
+  <div class="container">
+    <div class="hero__mono">TECHO TRADERS / CONTACT</div>
+    <h1 class="display-heading" style="color: var(--white); max-width: 600px;">CENTRAL<br>COMMAND.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div>
+        <div class="label">Get In Touch</div>
+        <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--dark); letter-spacing: 0.02em; margin-bottom: 2rem;">We'd Love To Hear From You</h2>
+
+        <div class="contact-info__item">
+          <div class="contact-info__icon">📍</div>
+          <div>
+            <div class="contact-info__label">Headquarters</div>
+            <div class="contact-info__value">Batticaloa, Sri Lanka</div>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <div class="contact-info__icon">📧</div>
+          <div>
+            <div class="contact-info__label">General Inquiries</div>
+            <div class="contact-info__value">inquiries@techotraders.com.lk</div>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <div class="contact-info__icon">📞</div>
+          <div>
+            <div class="contact-info__label">Phone</div>
+            <div class="contact-info__value">+94 70 665 6007</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <div class="label">Our Divisions</div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--slate);">
+              <div class="dot dot--labs"></div>
+              <strong style="color: var(--labs);">Techo Labs</strong> — labs@techotraders.com.lk
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--slate);">
+              <div class="dot dot--xpress"></div>
+              <strong style="color: var(--xpress);">Techo Xpress</strong> — xpress@techotraders.com.lk
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--slate);">
+              <div class="dot dot--connect"></div>
+              <strong style="color: var(--connect);">Techo Connect</strong> — connect@techotraders.com.lk
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <% if (success) { %>
+          <div class="alert alert--success">
+            ✓ Your message has been sent successfully. We'll be in touch shortly.
+          </div>
+        <% } %>
+        <% if (error) { %>
+          <div class="alert alert--error">
+            ✗ <%= error %>
+          </div>
+        <% } %>
+
+        <div class="contact-form">
+          <form method="POST" action="/contact">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Organization</label>
+              <input type="text" id="company" name="company" placeholder="Your company name" />
+            </div>
+            <div class="form-group">
+              <label for="department">Inquiry For *</label>
+              <select id="department" name="department" required>
+                <option value="">Select a division...</option>
+                <option value="general">Techo Traders — General Inquiry</option>
+                <option value="labs">Techo Labs — Digital & Marketing</option>
+                <option value="xpress">Techo Xpress — Courier & Logistics</option>
+                <option value="connect">Techo Connect — Antenna & Hardware</option>
+                <option value="partners">Partnership & Investment</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">
+              Send Message
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
